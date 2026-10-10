@@ -1,0 +1,16 @@
+# Build output. The .asi is built by CI and attached to releases, never committed: a binary in
+# the tree is a binary nobody can check against the source next to it.
+*.asi
+*.o
+*.obj
+*.res
+*.exp
+*.lib
+*.pdb
+*.ilk
+
+# Written next to the plugin at runtime.
+gtaw-siren-panel.log
+gtaw-siren-panel.log.prev
+gtaw-siren-panel.settings.txt
+gtaw-siren-panel.layout.txt

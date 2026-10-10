@@ -1,0 +1,88 @@
+// FiveM (asi-five) refuses any .asi on game build 2189+ that does not claim support for the
+// running build. It does FindResource(module, L"FX_ASI_BUILD", MAKEINTRESOURCE(GetGameBuild())),
+// so the resource NAME is FX_ASI_BUILD and its TYPE is the build number. One line per build.
+//
+// Servers pin their own build, so one line is not enough, and a missing line fails silently:
+// the loader simply never loads the DLL and there is no log to read. A line for a build that
+// does not exist costs nothing. Add a line when the build ladder moves.
+FX_ASI_BUILD 2189 BEGIN "\0" END
+FX_ASI_BUILD 2372 BEGIN "\0" END
+FX_ASI_BUILD 2545 BEGIN "\0" END
+FX_ASI_BUILD 2612 BEGIN "\0" END
+FX_ASI_BUILD 2699 BEGIN "\0" END
+FX_ASI_BUILD 2802 BEGIN "\0" END
+FX_ASI_BUILD 2944 BEGIN "\0" END
+FX_ASI_BUILD 3095 BEGIN "\0" END
+FX_ASI_BUILD 3258 BEGIN "\0" END
+FX_ASI_BUILD 3323 BEGIN "\0" END
+FX_ASI_BUILD 3407 BEGIN "\0" END
+FX_ASI_BUILD 3442 BEGIN "\0" END
+FX_ASI_BUILD 3570 BEGIN "\0" END
+FX_ASI_BUILD 3679 BEGIN "\0" END
+FX_ASI_BUILD 3751 BEGIN "\0" END
+FX_ASI_BUILD 3775 BEGIN "\0" END
+FX_ASI_BUILD 3788 BEGIN "\0" END
+FX_ASI_BUILD 3889 BEGIN "\0" END
+
+// The Siren Master panel's layers, as plain RCDATA: the PNG files themselves, the way any DLL
+// carries its pictures. src/hud/assets.cpp reads them out when the panel is installed. The layer list is src/hud/images.cpp; tools/check_assets.py checks the three
+// agree and that every image is a clean PNG.
+KB_BASE        RCDATA "assets/kabel/base.png"
+KB_BACKLIGHT   RCDATA "assets/kabel/backlight.png"
+KB_LRCO        RCDATA "assets/kabel/lrco.png"
+KB_WARN        RCDATA "assets/kabel/warn.png"
+KB_DIM         RCDATA "assets/kabel/dim.png"
+KB_FLOOD       RCDATA "assets/kabel/flood.png"
+KB_STBY        RCDATA "assets/kabel/stby.png"
+KB_RADIO       RCDATA "assets/kabel/radio.png"
+KB_SUB         RCDATA "assets/kabel/sub.png"
+KB_SBS         RCDATA "assets/kabel/sbs.png"
+KB_WAIL        RCDATA "assets/kabel/wail.png"
+KB_YELP        RCDATA "assets/kabel/yelp.png"
+KB_WIG         RCDATA "assets/kabel/wig.png"
+KB_BUMR        RCDATA "assets/kabel/bumr.png"
+KB_LEFTALLEY   RCDATA "assets/kabel/leftalley.png"
+KB_TAKEDOWN    RCDATA "assets/kabel/takedown.png"
+KB_RIGHTALLEY  RCDATA "assets/kabel/rightalley.png"
+KB_CRIMEJECT   RCDATA "assets/kabel/crimeject.png"
+KB_GUNLOCK     RCDATA "assets/kabel/gunlock.png"
+KB_LED1        RCDATA "assets/kabel/led1.png"
+KB_LED2        RCDATA "assets/kabel/led2.png"
+KB_LED3        RCDATA "assets/kabel/led3.png"
+KB_KNOB0       RCDATA "assets/kabel/knob0.png"
+KB_KNOB1       RCDATA "assets/kabel/knob1.png"
+KB_KNOB2       RCDATA "assets/kabel/knob2.png"
+KB_KNOB3       RCDATA "assets/kabel/knob3.png"
+
+// Version resource. An unsigned binary with no version info is itself a weighting factor in
+// Defender's scoring, and it leaves anyone who right-clicks the file with nothing to read.
+// Keep these in step with GTAW_SIREN_PANEL_VERSION in src/core/version.h.
+1 VERSIONINFO
+FILEVERSION    1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK  0x3fL
+FILEFLAGS      0x0L
+FILEOS         0x40004L
+FILETYPE       0x2L
+FILESUBTYPE    0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName",      "MatiDeZeta"
+            VALUE "FileDescription",  "gtaw-siren-panel - a Kabel Siren Master panel for GTA World's ELS, in FiveM"
+            VALUE "FileVersion",      "1.0.0.0"
+            VALUE "InternalName",     "gtaw-siren-panel"
+            VALUE "LegalCopyright",   "Copyright (c) 2026 MatiDeZeta. MIT licensed."
+            VALUE "OriginalFilename", "gtaw-siren-panel.asi"
+            VALUE "ProductName",      "gtaw-siren-panel"
+            VALUE "ProductVersion",   "1.0.0.0"
+            VALUE "Comments",         "Source and releases: https://github.com/MatiDeZeta/gtaw-siren-panel"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
